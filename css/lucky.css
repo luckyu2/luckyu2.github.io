@@ -24,7 +24,10 @@
 #footer {
   background: transparent !important;
 }
+/*#footer-wrap{*/
+/*  background-color: rgb(0, 196, 182) !important;*/
 
+/*}*/
 /* 首页中间打字效果上方 */
 #page-header #site_title {
   color: #80bdab;
