@@ -1,8 +1,4 @@
-/* 自定义字体 */
-@font-face {
-  font-family: 'STKaiti';
-  /*src: url('https://cdn.jsdelivr.net/gh/lete114/CDN2/zaxiang/sleek.woff2');*/
-}
+/* 点击侧边 */
 .card-archive-list a:hover{
   background-color: rgb(0, 196, 182) !important;
 }
@@ -19,15 +15,20 @@
 #page-header{
   background-color: rgb(0, 196, 182) !important;
 }
+#content-inner{
+  background-color:#ff7242;
+  background-image: url(https://gitee.com/cungudafa/source/raw/master/img/bg/hyo/4.png) ;
+}
 
 /* 页脚透明 */
-#footer {
+/* #footer {
   background: transparent !important;
+} */
+/* 页脚背景颜色 */
+#footer-wrap{
+ background-color: rgb(0, 196, 182) !important;
 }
-/*#footer-wrap{*/
-/*  background-color: rgb(0, 196, 182) !important;*/
 
-/*}*/
 /* 首页中间打字效果上方 */
 #page-header #site_title {
   color: #80bdab;
@@ -35,6 +36,7 @@
 /* 顶部导航栏 */
 #nav a {
   color: #f9f2f4;
+  background-color: red !important;
 }
 
 /*页脚a标签字体颜色*/
