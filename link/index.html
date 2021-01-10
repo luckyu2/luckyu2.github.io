@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>关于我 | luckyu</title><meta name="keywords" content="博客"><meta name="author" content="luckyu"><meta name="copyright" content="luckyu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="http://example.com/link/index.html">
+<meta property="og:site_name" content="luckyu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png">
+<meta property="article:published_time" content="2020-12-31T16:53:02.000Z">
+<meta property="article:modified_time" content="2021-01-10T17:34:56.613Z">
+<meta property="article:author" content="luckyu">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png"><link rel="shortcut icon" href="/img/icon.jpg"><link rel="canonical" href="http://example.com/link/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-01-11 01:34:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgtotro.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-smile"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/about/"><i class="fa-fw fa  fa-leaf faa-wrench"></i><span> 关于主题</span></a></li><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa fa-smile"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-fw fa fa-address-book faa-tada"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="no-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">luckyu</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-coffee"></i><span> 生活</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-smile"></i><span> 关于</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/about/"><i class="fa-fw fa  fa-leaf faa-wrench"></i><span> 关于主题</span></a></li><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa fa-smile"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-fw fa fa-address-book faa-tada"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="page"><div class="flink" id="article-container"><h2>关于我的技能</h2><div class="flink-desc">持续学习,持续进步</div><div class="flink-list"><div class="flink-list-item"><a href="/null" title="Vue" target="_blank"><img src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgvue-logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Vue"><span class="flink-item-name">Vue</span><span class="flink-item-desc" title="熟悉Vue、VueRouter、Vuex全家桶">熟悉Vue、VueRouter、Vuex全家桶</span></a></div><div class="flink-list-item"><a href="/null" title="HTML,CSS,JS" target="_blank"><img src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/html-logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="HTML,CSS,JS"><span class="flink-item-name">HTML,CSS,JS</span><span class="flink-item-desc" title="熟练 HTML5、CSS3、JS（含ES6）">熟练 HTML5、CSS3、JS（含ES6）</span></a></div></div><h2>常用网站</h2><div class="flink-list"><div class="flink-list-item"><a href="https://www.nowcoder.com/activity/oj" title="牛客网" target="_blank"><img src="https://www.lgstatic.com/thumbnail_300x300/image1/M00/00/52/CgYXBlTUXRKAWX0GAABgPMeMlOs345.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="牛客网"><span class="flink-item-name">牛客网</span><span class="flink-item-desc" title="在线编程">在线编程</span></a></div><div class="flink-list-item"><a href="https://juejin.cn/" title="掘金" target="_blank"><img src="https://sf6-scmcdn2-tos.pstatp.com/xitu_juejin_web/img/logo.a7995ad.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="掘金"><span class="flink-item-name">掘金</span><span class="flink-item-desc" title="开发者交流分享">开发者交流分享</span></a></div><div class="flink-list-item"><a href="https://www.bilibili.com/" title="B站" target="_blank"><img src="https://img.3dmgame.com/uploads/images/news/20191016/1571234285_877566.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="B站"><span class="flink-item-name">B站</span><span class="flink-item-desc" title="视频弹幕网站">视频弹幕网站</span></a></div><div class="flink-list-item"><a href="https://cn.vuejs.org/" title="Vue" target="_blank"><img src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgvue-logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Vue"><span class="flink-item-name">Vue</span><span class="flink-item-desc" title="前端框架">前端框架</span></a></div><div class="flink-list-item"><a href="https://v3.bootcss.com/css/" title="Bootstrap" target="_blank"><img src="https://wptavern.com/wp-content/uploads/2014/02/bootstrap.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Bootstrap"><span class="flink-item-name">Bootstrap</span><span class="flink-item-desc" title="前端样式">前端样式</span></a></div><div class="flink-list-item"><a href="https://www.zhihu.com/" title="知乎" target="_blank"><img src="https://gss3.bdstatic.com/84oSdTum2Q5BphGlnYG/timg?wapp&amp;quality=80&amp;size=b150_150&amp;subsize=20480&amp;cut_x=0&amp;cut_w=0&amp;cut_y=0&amp;cut_h=0&amp;sec=1369815402&amp;srctrace&amp;di=80c98c17d6c06d4e2a92d94a5bad2123&amp;wh_rate=null&amp;src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F6709c93d70cf3bc71923c096d200baa1cd112aac.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="知乎"><span class="flink-item-name">知乎</span><span class="flink-item-desc" title="社交分享平台">社交分享平台</span></a></div></div><h2>关于博客</h2><div class="flink-desc">博客框架及主题相关</div><div class="flink-list"><div class="flink-list-item"><a href="https://butterfly.js.org/" title="Jerry" target="_blank"><img src="https://jerryc.me/image/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Jerry"><span class="flink-item-name">Jerry</span><span class="flink-item-desc" title="butterfly主题作者">butterfly主题作者</span></a></div><div class="flink-list-item"><a href="https://hexo.io/zh-cn/" title="Hexo主题" target="_blank"><img src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Hexo主题"><span class="flink-item-name">Hexo主题</span><span class="flink-item-desc" title="快速、简洁且高效的博客框架">快速、简洁且高效的博客框架</span></a></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">V</span><span class="switch-btn"></span><span class="second-comment">a</span></div></div><div class="comment-wrap"><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgtotro.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">luckyu</div><div class="author-info__description">个人博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/"><i class="fab fa-github"></i><span>GitHub主题</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/yss4598@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">此为个人博客，非商用，部分素材源自互联网，如有侵权，请联系本人删除~</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/01/10/Promise%E5%85%A5%E9%97%A8%E8%AF%A6%E8%A7%A3/" title="Promise入门"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Promise入门"/></a><div class="content"><a class="title" href="/2021/01/10/Promise%E5%85%A5%E9%97%A8%E8%AF%A6%E8%A7%A3/" title="Promise入门">Promise入门</a><time datetime="2021-01-10T09:53:30.000Z" title="发表于 2021-01-10 17:53:30">2021-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/10/axios%E5%AD%A6%E4%B9%A0%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="开始把一些东西放博客上"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="开始把一些东西放博客上"/></a><div class="content"><a class="title" href="/2021/01/10/axios%E5%AD%A6%E4%B9%A0%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="开始把一些东西放博客上">开始把一些东西放博客上</a><time datetime="2021-01-10T08:21:38.000Z" title="发表于 2021-01-10 16:21:38">2021-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/10/%E6%89%93%E9%80%A0%E7%A8%B3%E5%AE%9A%E5%BF%AB%E9%80%9F%E3%80%81%E9%AB%98%E6%95%88%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/" title="打造稳定快速、高效免费图床"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="打造稳定快速、高效免费图床"/></a><div class="content"><a class="title" href="/2021/01/10/%E6%89%93%E9%80%A0%E7%A8%B3%E5%AE%9A%E5%BF%AB%E9%80%9F%E3%80%81%E9%AB%98%E6%95%88%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/" title="打造稳定快速、高效免费图床">打造稳定快速、高效免费图床</a><time datetime="2021-01-10T04:23:11.000Z" title="发表于 2021-01-10 12:23:11">2021-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/08/%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" title="盒模型及应用"><img src="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="盒模型及应用"/></a><div class="content"><a class="title" href="/2021/01/08/%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" title="盒模型及应用">盒模型及应用</a><time datetime="2021-01-08T08:09:42.000Z" title="发表于 2021-01-08 16:09:42">2021-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/08/%E8%AE%B0%E5%BD%95%E5%87%A0%E6%AE%B5%E5%B8%B8%E7%94%A8js%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AE%9E%E7%8E%B0/" title="记录几段常用js代码的实现"><img src="https://img.php.cn/upload/webpage/000/000/001/591d58c46fc00133.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记录几段常用js代码的实现"/></a><div class="content"><a class="title" href="/2021/01/08/%E8%AE%B0%E5%BD%95%E5%87%A0%E6%AE%B5%E5%B8%B8%E7%94%A8js%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AE%9E%E7%8E%B0/" title="记录几段常用js代码的实现">记录几段常用js代码的实现</a><time datetime="2021-01-07T17:08:29.000Z" title="发表于 2021-01-08 01:08:29">2021-01-08</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-bolt"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/other/" style="font-size: 1.1em; color: rgb(85, 194, 46)">other</a><a href="/tags/webpack/" style="font-size: 1.1em; color: rgb(98, 41, 117)">webpack</a><a href="/tags/css/" style="font-size: 1.5em; color: rgb(19, 105, 123)">css</a><a href="/tags/%E6%80%A7%E8%83%BD%E5%8A%A0%E9%80%9F/" style="font-size: 1.1em; color: rgb(0, 94, 0)">性能加速</a><a href="/tags/blog/" style="font-size: 1.1em; color: rgb(56, 138, 53)">blog</a><a href="/tags/JS/" style="font-size: 1.5em; color: rgb(129, 141, 11)">JS</a><a href="/tags/ES6/" style="font-size: 1.1em; color: rgb(118, 163, 31)">ES6</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-12-16T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-01-10T17:52:34.702Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By luckyu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+    content = content.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png|webp)/g, '') // remove image link
+    content = content.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi, '') // remove url
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          let name = 'src'
+          if(false) {
+            name = 'data-lazy-src'
+          }
+          result += `<a href='${array[i].url}' class="thumbnail"><img ${name}='${getIcon(array[i].avatar, array[i].mail)}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick}</span><time> / ${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+      let serverURL = ''
+      if (false) {
+        serverURL = ''
+      } else {
+        serverURL = 'https://DWTJ2DMV.api.lncldglobal.com'
+      }
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'DWTJ2DMVc6jmyrn0PPhWLpW7-gzGzoHsz',
+        "X-LC-Key": 'Xd83b6w1xuOhQDHRo6LdhVCb',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': e.QQAvatar,
+            'content': changeContent(e.comment),
+            'mail': e.mail,
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.createdAt,
+          }
+        })
+        saveToLocal.set('leancloud-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('leancloud-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,自由,法制" data-fontsize="15px" data-random="true" async="async"></script></div></body></html>

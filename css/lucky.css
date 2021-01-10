@@ -17,12 +17,12 @@
 }
 /*新页面背景*/
 #page-header{
-  background-color: rgb(0, 196, 182) !important;
+  background-color: rgb(0, 196, 182)  !important;
 }
 
 /* 页脚透明 */
 #footer {
-  background: transparent !important;
+  background: url("https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgtop_img%201.jpg") 100% 20%/100% !important;
 }
 /*#footer-wrap{*/
 /*  background-color: rgb(0, 196, 182) !important;*/
