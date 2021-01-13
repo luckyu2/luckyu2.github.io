@@ -68,6 +68,10 @@
 }
 
 /*返回顶部*/
+a#to_comment{
+  background: rgb(0, 196, 182) !important ;
+  color:rgb(0, 196, 182) ;
+}
 #go-up,
 #rightside_config
 {
