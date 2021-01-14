@@ -71,6 +71,9 @@
   .framework-info a{
     color: #49b1f5 !important;
   }
+  #footer {
+    background: url("https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/foot-bg.gif")  !important;
+  }
 }
 /*右侧名字*/
 .author-info__name {
