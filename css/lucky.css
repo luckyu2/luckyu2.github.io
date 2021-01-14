@@ -57,11 +57,11 @@
     display: none;
     font-size: 13px;
   }
- a.gitter-open-chat-button, .gitter-open-chat-button:visited{
-    display: none !important;
-    z-index: 0 !important;
-  }
-  .local-search{
+ /*a.gitter-open-chat-button, .gitter-open-chat-button:visited{*/
+ /*   display: none !important;*/
+ /*   z-index: 0 !important;*/
+ /* }*/
+ #local-search{
     display: none !important;
   }
   .footer_custom_text{
