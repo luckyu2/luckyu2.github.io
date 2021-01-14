@@ -1,0 +1,428 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>用Vue框架开发移动端XX购商城项目开发思路 | luckyu</title><meta name="keywords" content="Vue"><meta name="author" content="luckyu"><meta name="copyright" content="luckyu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="一. gridView 独立组件封装gridView 用于goodslistitem，每件商品橱窗页面的展示 div&gt;a&gt;img    二. TabControl 独立组件的封装 props -&gt; titles div&gt;根据titles v-for遍历 div -&gt; span用Vue框架开发移动端XX购商城项目开发思路 css相关 选中哪一个tab, 哪一个tab的文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Vue框架开发移动端XX购商城项目开发思路">
+<meta property="og:url" content="http://example.com/2021/01/13/%E7%A7%BB%E5%8A%A8%E7%AB%AFXX%E8%B4%AD%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/index.html">
+<meta property="og:site_name" content="luckyu">
+<meta property="og:description" content="一. gridView 独立组件封装gridView 用于goodslistitem，每件商品橱窗页面的展示 div&gt;a&gt;img    二. TabControl 独立组件的封装 props -&gt; titles div&gt;根据titles v-for遍历 div -&gt; span用Vue框架开发移动端XX购商城项目开发思路 css相关 选中哪一个tab, 哪一个tab的文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2021-01-13T15:18:34.000Z">
+<meta property="article:modified_time" content="2021-01-14T16:53:45.778Z">
+<meta property="article:author" content="luckyu">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png"><link rel="shortcut icon" href="/img/icon.jpg"><link rel="canonical" href="http://example.com/2021/01/13/%E7%A7%BB%E5%8A%A8%E7%AB%AFXX%E8%B4%AD%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: luckyu","link":"链接: ","source":"来源: luckyu","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-15 00:53:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgtotro.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照册</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-fw fa fa-address-book faa-tada"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">luckyu</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照册</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-fw fa fa-address-book faa-tada"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">用Vue框架开发移动端XX购商城项目开发思路</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-13T15:18:34.000Z" title="发表于 2021-01-13 23:18:34">2021-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-14T16:53:45.778Z" title="更新于 2021-01-15 00:53:45">2021-01-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="一-gridView"><a href="#一-gridView" class="headerlink" title="一. gridView"></a>一. gridView</h3><ul>
+<li>独立组件封装gridView 用于goodslistitem，每件商品橱窗页面的展示<ul>
+<li>div&gt;a&gt;img</li>
+</ul>
+</li>
+</ul>
+<h3 id="二-TabControl"><a href="#二-TabControl" class="headerlink" title="二. TabControl"></a>二. TabControl</h3><ul>
+<li>独立组件的封装<ul>
+<li>props -&gt; titles</li>
+<li>div&gt;根据titles v-for遍历 div -&gt; span用Vue框架开发移动端XX购商城项目开发思路</li>
+<li>css相关</li>
+<li>选中哪一个tab, 哪一个tab的文字颜色变色, 下面border-bottom<ul>
+<li>currentIndex</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三-首页商品数据的请求"><a href="#三-首页商品数据的请求" class="headerlink" title="三. 首页商品数据的请求"></a>三. 首页商品数据的请求</h3><h4 id="3-1-设计数据结构-用于保存数据"><a href="#3-1-设计数据结构-用于保存数据" class="headerlink" title="3.1. 设计数据结构, 用于保存数据"></a>3.1. 设计数据结构, 用于保存数据</h4><p>goods: {</p>
+<p>pop: page/list</p>
+<p>new: page/list</p>
+<p>sell: page/list</p>
+<p>}</p>
+<h4 id="3-2-发送数据请求"><a href="#3-2-发送数据请求" class="headerlink" title="3.2. 发送数据请求"></a>3.2. 发送数据请求</h4><ul>
+<li>在home.js中封装getHomeGoods(type, page)</li>
+<li>在Home.vue中, 又在methods中getHomeGoods(type)</li>
+<li>调用getHomeGoods(‘pop’)/getHomeGoods(‘new’)/getHomeGoods(‘sell’)<ul>
+<li>page: 动态的获取对应的page</li>
+</ul>
+</li>
+<li>获取到数据: res<ul>
+<li>this.goods[type].list.push(…res.data.list)</li>
+<li>this.goods[type].page += 1</li>
+</ul>
+</li>
+</ul>
+<p>goods: {</p>
+<p>pop: page1:/list[30]</p>
+<p>new: page1/list[30]</p>
+<p>sell: page1/list[30]</p>
+<p>}</p>
+<h3 id="四-对商品数据进行展示"><a href="#四-对商品数据进行展示" class="headerlink" title="四. 对商品数据进行展示"></a>四. 对商品数据进行展示</h3><h4 id="4-1-封装GoodsList-vue组件"><a href="#4-1-封装GoodsList-vue组件" class="headerlink" title="4.1. 封装GoodsList.vue组件"></a>4.1. 封装GoodsList.vue组件</h4><ul>
+<li>props: goods -&gt; list[30]</li>
+<li>v-for goods -&gt; GoodsListItem[30]</li>
+<li>GoodListItem(组件) -&gt; GoodsItem(数据)</li>
+</ul>
+<h4 id="4-2-封装GoodsListItem-vue组件"><a href="#4-2-封装GoodsListItem-vue组件" class="headerlink" title="4.2. 封装GoodsListItem.vue组件"></a>4.2. 封装GoodsListItem.vue组件</h4><ul>
+<li>props: goodsItem</li>
+<li>goodsItem 取出数据, 并且使用正确的div/span/img基本标签进行展示</li>
+</ul>
+<h3 id="五-对滚动进行重构-Better-Scroll"><a href="#五-对滚动进行重构-Better-Scroll" class="headerlink" title="五. 对滚动进行重构: Better-Scroll"></a>五. 对滚动进行重构: Better-Scroll</h3><h4 id="5-1-在index-html中使用Better-Scroll"><a href="#5-1-在index-html中使用Better-Scroll" class="headerlink" title="5.1. 在index.html中使用Better-Scroll"></a>5.1. 在index.html中使用Better-Scroll</h4><ul>
+<li>const bscroll = new BScroll(el, { })</li>
+<li>注意: wrapper -&gt; content -&gt; 很多内容</li>
+<li>1.监听滚动<ul>
+<li>probeType: 0/1/2(手指滚动)/3(只要是滚动)</li>
+<li>bscroll .on(‘scroll’, (position) =&gt; {})</li>
+</ul>
+</li>
+<li>2.上拉加载<ul>
+<li>pullUpLoad: true</li>
+<li>bscroll .on(‘pullingUp’, () =&gt; {})</li>
+</ul>
+</li>
+<li>3.click: false<ul>
+<li>button可以监听点击</li>
+<li>div不可以</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-在Vue项目中使用Better-Scroll"><a href="#5-2-在Vue项目中使用Better-Scroll" class="headerlink" title="5.2. 在Vue项目中使用Better-Scroll"></a>5.2. 在Vue项目中使用Better-Scroll</h4><ul>
+<li>在Profile.vue中简单的演示</li>
+<li>对Better-Scroll进行封装: Scroll.vue</li>
+<li>Home.vue和Scroll.vue之间进行通信<ul>
+<li>Home.vue将probeType设置为3</li>
+<li>Scroll.vue需要通过$emit, 实时将事件发送到Home.vue</li>
+</ul>
+</li>
+</ul>
+<h3 id="六-回到顶部BackTop"><a href="#六-回到顶部BackTop" class="headerlink" title="六. 回到顶部BackTop"></a>六. 回到顶部BackTop</h3><h4 id="6-1-对BackTop-vue组件的封装"><a href="#6-1-对BackTop-vue组件的封装" class="headerlink" title="6.1. 对BackTop.vue组件的封装"></a>6.1. 对BackTop.vue组件的封装</h4><h4 id="6-2-如何监听组件的点击"><a href="#6-2-如何监听组件的点击" class="headerlink" title="6.2. 如何监听组件的点击"></a>6.2. 如何监听组件的点击</h4><ul>
+<li>直接监听back-top的点击, 但是可以直接监听?<ul>
+<li>不可以, 必须添加修饰.native</li>
+</ul>
+</li>
+<li>回到顶部<ul>
+<li>scroll对象, scroll.scrollTo(x, y, time)</li>
+<li>this.$refs.scroll.scrollTo(0, 0, 500)</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-3-BackTop组件的显示和隐藏"><a href="#6-3-BackTop组件的显示和隐藏" class="headerlink" title="6.3. BackTop组件的显示和隐藏"></a>6.3. BackTop组件的显示和隐藏</h4><ul>
+<li>isShowBackTop: false</li>
+<li>监听滚动, 拿到滚动的位置:<ul>
+<li>-position.y &gt; 1000 -&gt; isShowBackTop: true</li>
+<li>isShowBackTop = -position.y &gt; 1000</li>
+</ul>
+</li>
+</ul>
+<h3 id="七-解决首页中可滚动区域的问题"><a href="#七-解决首页中可滚动区域的问题" class="headerlink" title="七. 解决首页中可滚动区域的问题"></a>七. 解决首页中可滚动区域的问题</h3><ul>
+<li><p>Better-Scroll在决定有多少区域可以滚动时, 是根据scrollerHeight属性决定</p>
+<ul>
+<li>scrollerHeight属性是根据放Better-Scroll的content中的子组件的高度</li>
+<li>但是我们的首页中, 刚开始在计算scrollerHeight属性时, 是没有将图片计算在内的</li>
+<li>所以, 计算出来的告诉是错误的(1300+)</li>
+<li>后来图片加载进来之后有了新的高度, 但是scrollerHeight属性并没有进行更新.</li>
+<li>所以滚动出现了问题</li>
+</ul>
+</li>
+<li><p>如何解决这个问题了?</p>
+<ul>
+<li>监听每一张图片是否加载完成, 只要有一张图片加载完成了, 执行一次refresh()</li>
+<li>如何监听图片加载完成了?<ul>
+<li>原生的js监听图片: img.onload = function() {}</li>
+<li>Vue中监听: @load=’方法’</li>
+</ul>
+</li>
+<li>调用scroll的refresh()</li>
+</ul>
+</li>
+<li><p>如何将GoodsListItem.vue中的事件传入到Home.vue中</p>
+<ul>
+<li><p>因为涉及到非父子组件的通信, 所以这里我们选择了</p>
+<p>事件总线</p>
+<ul>
+<li>bus -&gt;总线</li>
+<li>Vue.prototype.$bus = new Vue()</li>
+<li>this.bus.emit(‘事件名称’, 参数)</li>
+<li>this.bus.on(‘事件名称’, 回调函数(参数))</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>问题一: refresh找不到的问题</p>
+<ul>
+<li>第一: 在Scroll.vue中, 调用this.scroll的方法之前, 判断this.scroll对象是否有值</li>
+<li>第二: 在mounted生命周期函数中使用 this.$refs.scroll而不是created中</li>
+</ul>
+</li>
+<li><p>问题二: 对于refresh非常频繁的问题, 进行防抖操作</p>
+<ul>
+<li>防抖debounce/节流throttle(课下研究一下)</li>
+<li>防抖函数起作用的过程:<ul>
+<li>如果我们直接执行refresh, 那么refresh函数会被执行30次.</li>
+<li>可以将refresh函数传入到debounce函数中, 生成一个新的函数.</li>
+<li>之后在调用非常频繁的时候, 就使用新生成的函数.</li>
+<li>而新生成的函数, 并不会非常频繁的调用, 如果下一次执行来的非常快, 那么会将上一次取消掉</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">debounce(func, delay) &#123;</span><br><span class="line">  let timer &#x3D; null</span><br><span class="line">  return function (...args) &#123;</span><br><span class="line">    if (timer) clearTimeout(timer)</span><br><span class="line">    timer &#x3D; setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">      func.apply(this, args)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="八-上拉加载更多的功能"><a href="#八-上拉加载更多的功能" class="headerlink" title="八. 上拉加载更多的功能"></a>八. 上拉加载更多的功能</h3><ul>
+<li>监听是否滚动到底部的办法，利用非父子组件通信的方式，获取调用BScroll库中封装的pullingUp方法，此方法用于判断是否到下拉到底部，用emit将此方法发送到父组件</li>
+<li>当滚动到底部的时，父组件将调用pullingUp方法，当被调用时，pullingUp方法中的this.getHomeGoods(this.currentType)方法被调用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getHomeGoods(type)&#123;</span><br><span class="line">  let page &#x3D; this.goods[type].page + 1</span><br><span class="line">  getHomeGoods(type,page).then(res&#x3D;&gt;&#123;</span><br><span class="line">    this.goods[type].list.push(...res.data.list)</span><br><span class="line">    this.goods[type].page +&#x3D; 1</span><br><span class="line">    &#x2F;&#x2F;调用重置下拉次数的方法</span><br><span class="line">    this.$refs.scroll.finishPullUp()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="九-tabControl的吸顶效果"><a href="#九-tabControl的吸顶效果" class="headerlink" title="九. tabControl的吸顶效果"></a>九. tabControl的吸顶效果</h3><h4 id="9-1-获取到tabControl的offsetTop"><a href="#9-1-获取到tabControl的offsetTop" class="headerlink" title="9.1. 获取到tabControl的offsetTop"></a>9.1. 获取到tabControl的offsetTop</h4><ul>
+<li>必须知道滚动到多少时, 开始有吸顶效果, 这个时候就需要获取tabControl的offsetTop</li>
+<li>但是, 如果直接在mounted中获取tabControl的offsetTop, 那么值是不正确.</li>
+<li>如何获取正确的值了?<ul>
+<li>监听HomeSwiper中img的加载完成.</li>
+<li>加载完成后, 发出事件, 在Home.vue中, 获取正确的值.</li>
+<li>补充:<ul>
+<li>为了不让HomeSwiper多次发出事件,</li>
+<li>可以使用isLoad的变量进行状态的记录.</li>
+</ul>
+</li>
+<li>注意: 这里不进行多次调用和debounce的区别</li>
+</ul>
+</li>
+</ul>
+<h4 id="9-2-监听滚动-动态的改变tabControl的样式"><a href="#9-2-监听滚动-动态的改变tabControl的样式" class="headerlink" title="9.2. 监听滚动, 动态的改变tabControl的样式"></a>9.2. 监听滚动, 动态的改变tabControl的样式</h4><ul>
+<li>问题:动态的改变tabControl的样式时, 会出现两个问题:<ul>
+<li>问题一: 下面的商品内容, 会突然上移</li>
+<li>问题二: tabControl虽然设置了fixed, 但是也随着Better-Scroll一起滚出去了.</li>
+</ul>
+</li>
+<li>其他方案来解决停留问题.<ul>
+<li>在最上面, 多复制了一份PlaceHolderTabControl组件对象, 利用它来实现停留效果.</li>
+<li>当用户滚动到一定位置时, PlaceHolderTabControl显示出来.</li>
+<li>当用户滚动没有达到一定位置时, PlaceHolderTabControl隐藏起来.</li>
+</ul>
+</li>
+</ul>
+<h3 id="十-让Home保持原来的状态"><a href="#十-让Home保持原来的状态" class="headerlink" title="十. 让Home保持原来的状态"></a>十. 让Home保持原来的状态</h3><h4 id="10-1-让Home不要随意销毁掉"><a href="#10-1-让Home不要随意销毁掉" class="headerlink" title="10.1. 让Home不要随意销毁掉"></a>10.1. 让Home不要随意销毁掉</h4><ul>
+<li>keep-alive</li>
+</ul>
+<h4 id="10-2-让Home中的内容保持原来的位置"><a href="#10-2-让Home中的内容保持原来的位置" class="headerlink" title="10.2. 让Home中的内容保持原来的位置"></a>10.2. 让Home中的内容保持原来的位置</h4><ul>
+<li>离开时, 保存一个位置信息saveY.</li>
+<li>进来时, 将位置设置为原来保存的位置saveY信息即可.<ul>
+<li>注意: 最好回来时, 进行一次refresh()</li>
+</ul>
+</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vue/">Vue</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgwechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgwechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgalipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgalipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/01/12/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%AF%A6%E8%A7%A3/"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/tcp.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">TCP三次握手四次挥手详解</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Waline</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgtotro.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">luckyu</div><div class="author-info__description">啊哈哈</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/"><i class="fab fa-github"></i><span>基于GitHub创建的博客</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yss4598@gmail.com" target="_blank" title="我的Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">没有记录，就没有发生</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-gridView"><span class="toc-number">1.</span> <span class="toc-text">一. gridView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-TabControl"><span class="toc-number">2.</span> <span class="toc-text">二. TabControl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%B7%E6%B1%82"><span class="toc-number">3.</span> <span class="toc-text">三. 首页商品数据的请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%94%A8%E4%BA%8E%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. 设计数据结构, 用于保存数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. 发送数据请求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E5%AF%B9%E5%95%86%E5%93%81%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%B1%95%E7%A4%BA"><span class="toc-number">4.</span> <span class="toc-text">四. 对商品数据进行展示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E5%B0%81%E8%A3%85GoodsList-vue%E7%BB%84%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">4.1. 封装GoodsList.vue组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E5%B0%81%E8%A3%85GoodsListItem-vue%E7%BB%84%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">4.2. 封装GoodsListItem.vue组件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%AF%B9%E6%BB%9A%E5%8A%A8%E8%BF%9B%E8%A1%8C%E9%87%8D%E6%9E%84-Better-Scroll"><span class="toc-number">5.</span> <span class="toc-text">五. 对滚动进行重构: Better-Scroll</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E5%9C%A8index-html%E4%B8%AD%E4%BD%BF%E7%94%A8Better-Scroll"><span class="toc-number">5.1.</span> <span class="toc-text">5.1. 在index.html中使用Better-Scroll</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E5%9C%A8Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8Better-Scroll"><span class="toc-number">5.2.</span> <span class="toc-text">5.2. 在Vue项目中使用Better-Scroll</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-%E5%9B%9E%E5%88%B0%E9%A1%B6%E9%83%A8BackTop"><span class="toc-number">6.</span> <span class="toc-text">六. 回到顶部BackTop</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-%E5%AF%B9BackTop-vue%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-number">6.1.</span> <span class="toc-text">6.1. 对BackTop.vue组件的封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-%E5%A6%82%E4%BD%95%E7%9B%91%E5%90%AC%E7%BB%84%E4%BB%B6%E7%9A%84%E7%82%B9%E5%87%BB"><span class="toc-number">6.2.</span> <span class="toc-text">6.2. 如何监听组件的点击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-BackTop%E7%BB%84%E4%BB%B6%E7%9A%84%E6%98%BE%E7%A4%BA%E5%92%8C%E9%9A%90%E8%97%8F"><span class="toc-number">6.3.</span> <span class="toc-text">6.3. BackTop组件的显示和隐藏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83-%E8%A7%A3%E5%86%B3%E9%A6%96%E9%A1%B5%E4%B8%AD%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%8C%BA%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">七. 解决首页中可滚动区域的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB-%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">8.</span> <span class="toc-text">八. 上拉加载更多的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D-tabControl%E7%9A%84%E5%90%B8%E9%A1%B6%E6%95%88%E6%9E%9C"><span class="toc-number">9.</span> <span class="toc-text">九. tabControl的吸顶效果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1-%E8%8E%B7%E5%8F%96%E5%88%B0tabControl%E7%9A%84offsetTop"><span class="toc-number">9.1.</span> <span class="toc-text">9.1. 获取到tabControl的offsetTop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2-%E7%9B%91%E5%90%AC%E6%BB%9A%E5%8A%A8-%E5%8A%A8%E6%80%81%E7%9A%84%E6%94%B9%E5%8F%98tabControl%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="toc-number">9.2.</span> <span class="toc-text">9.2. 监听滚动, 动态的改变tabControl的样式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81-%E8%AE%A9Home%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">10.</span> <span class="toc-text">十. 让Home保持原来的状态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1-%E8%AE%A9Home%E4%B8%8D%E8%A6%81%E9%9A%8F%E6%84%8F%E9%94%80%E6%AF%81%E6%8E%89"><span class="toc-number">10.1.</span> <span class="toc-text">10.1. 让Home不要随意销毁掉</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2-%E8%AE%A9Home%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">10.2.</span> <span class="toc-text">10.2. 让Home中的内容保持原来的位置</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/01/13/%E7%A7%BB%E5%8A%A8%E7%AB%AFXX%E8%B4%AD%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/" title="用Vue框架开发移动端XX购商城项目开发思路"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用Vue框架开发移动端XX购商城项目开发思路"/></a><div class="content"><a class="title" href="/2021/01/13/%E7%A7%BB%E5%8A%A8%E7%AB%AFXX%E8%B4%AD%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/" title="用Vue框架开发移动端XX购商城项目开发思路">用Vue框架开发移动端XX购商城项目开发思路</a><time datetime="2021-01-13T15:18:34.000Z" title="发表于 2021-01-13 23:18:34">2021-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/12/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%AF%A6%E8%A7%A3/" title="TCP三次握手四次挥手详解"><img data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/tcp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TCP三次握手四次挥手详解"/></a><div class="content"><a class="title" href="/2021/01/12/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%AF%A6%E8%A7%A3/" title="TCP三次握手四次挥手详解">TCP三次握手四次挥手详解</a><time datetime="2021-01-12T05:15:54.000Z" title="发表于 2021-01-12 13:15:54">2021-01-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/11/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E7%9A%84%E5%B8%B8%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94/" title="响应式布局的常用解决方案对比"><img data-lazy-src="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="响应式布局的常用解决方案对比"/></a><div class="content"><a class="title" href="/2021/01/11/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E7%9A%84%E5%B8%B8%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94/" title="响应式布局的常用解决方案对比">响应式布局的常用解决方案对比</a><time datetime="2021-01-11T15:15:05.000Z" title="发表于 2021-01-11 23:15:05">2021-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/11/Node-js%E6%93%8D%E4%BD%9CMySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" title="Node.js操作MySQL数据库"><img data-lazy-src="http://static.nodejs.cn/_static/img/logo.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Node.js操作MySQL数据库"/></a><div class="content"><a class="title" href="/2021/01/11/Node-js%E6%93%8D%E4%BD%9CMySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" title="Node.js操作MySQL数据库">Node.js操作MySQL数据库</a><time datetime="2021-01-11T06:45:40.000Z" title="发表于 2021-01-11 14:45:40">2021-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/11/WEBsocket%E7%9A%84%E5%BC%95%E5%85%A5/" title="关于websocket"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于websocket"/></a><div class="content"><a class="title" href="/2021/01/11/WEBsocket%E7%9A%84%E5%BC%95%E5%85%A5/" title="关于websocket">关于websocket</a><time datetime="2021-01-11T03:57:04.000Z" title="发表于 2021-01-11 11:57:04">2021-01-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By luckyu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">---------我是有底线的---------</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    let initData = {
+      el: '#waline-wrap',
+      serverURL: 'https://comments-api.vercel.app',
+      avatar: 'retro',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: {"name":"_data","version":"1.0.0","dependencies":{"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"}},
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const waline = new Waline(initData)
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2021/01/13/%E7%A7%BB%E5%8A%A8%E7%AB%AFXX%E8%B4%AD%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/'
+    this.page.identifier = '2021/01/13/移动端XX购商城项目开发思路/'
+    this.page.title = '用Vue框架开发移动端XX购商城项目开发思路'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Waline' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,自由,法制" data-fontsize="15px" data-random="true" async="async"></script></div></body></html>
