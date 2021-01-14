@@ -57,8 +57,19 @@
     display: none;
     font-size: 13px;
   }
-  .gitter-open-chat-button, .gitter-open-chat-button:visited{
+  a.gitter-open-chat-button, .gitter-open-chat-button:visited{
     display: none !important;
+    z-index: 0;
+  }
+  .search-dialog{
+    display: none !important;
+  }
+  .footer_custom_text{
+    font-size: 10px;
+    color: #b3e5ef;
+  }
+  .framework-info a{
+    color: #49b1f5 !important;
   }
 }
 /*右侧名字*/
