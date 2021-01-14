@@ -16,7 +16,8 @@
   top: 0;
 }
 /*新页面背景*/
-#page-header{
+#page-header,
+.reward-button{
   background-color: rgb(0, 196, 182)  !important;
 }
 
@@ -41,14 +42,17 @@
 #footer-wrap a {
   color: #dbe8e7;
 }
+.framework-info a{
+  color: #49b1f5 !important;
+}
 /*页脚字体颜色*/
 .framework-info ,
 .copyright {
   color: rgb(244, 244, 250);
 }
-.footer_custom_text{
-  color: rgb(15, 179, 245);
-}
+/*.footer_custom_text{*/
+/*  color: rgb(131, 193, 139);*/
+/*}*/
 
 
 /*移动端优化：去除归档、标签、最新文章、公告、、只保留网站统计*/
@@ -57,16 +61,15 @@
     display: none;
     font-size: 13px;
   }
+  #page-header{
+    background-image: url("https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/index-img-shuban.jpg") !important;
+  }
  /*a.gitter-open-chat-button, .gitter-open-chat-button:visited{*/
  /*   display: none !important;*/
  /*   z-index: 0 !important;*/
  /* }*/
  #local-search{
     display: none !important;
-  }
-  .footer_custom_text{
-    font-size: 10px;
-    color: #b3e5ef;
   }
   .framework-info a{
     color: #49b1f5 !important;
