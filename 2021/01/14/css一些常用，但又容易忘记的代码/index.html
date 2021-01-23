@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>关于css中一些常用，但又容易忘记的代码 | luckyu</title><meta name="keywords" content="CSS"><meta name="author" content="luckyu"><meta name="copyright" content="luckyu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="一些常用的head标签内部.meta标签常用1&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width,initial-scale&#x3D;1,minimum-scale&#x3D;1,maximum-scale&#x3D;1,user-scalable&#x3D;no&quot; &#x2F;&gt; 这是一段移动端必备的一段代码。 1&lt;meta name&#x3D;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于css中一些常用，但又容易忘记的代码">
+<meta property="og:url" content="http://example.com/2021/01/14/css%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%EF%BC%8C%E4%BD%86%E5%8F%88%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%BB%A3%E7%A0%81/index.html">
+<meta property="og:site_name" content="luckyu">
+<meta property="og:description" content="一些常用的head标签内部.meta标签常用1&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width,initial-scale&#x3D;1,minimum-scale&#x3D;1,maximum-scale&#x3D;1,user-scalable&#x3D;no&quot; &#x2F;&gt; 这是一段移动端必备的一段代码。 1&lt;meta name&#x3D;&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png">
+<meta property="article:published_time" content="2021-01-14T10:24:33.000Z">
+<meta property="article:modified_time" content="2021-01-23T05:50:23.140Z">
+<meta property="article:author" content="luckyu">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png"><link rel="shortcut icon" href="/img/icon.jpg"><link rel="canonical" href="http://example.com/2021/01/14/css%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%EF%BC%8C%E4%BD%86%E5%8F%88%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%BB%A3%E7%A0%81/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: luckyu","link":"链接: ","source":"来源: luckyu","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-23 13:50:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgtotro.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照册</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-fw fa fa-address-book faa-tada"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">luckyu</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照册</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-fw fa fa-address-book faa-tada"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">关于css中一些常用，但又容易忘记的代码</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-01-14T10:24:33.000Z" title="发表于 2021-01-14 18:24:33">2021-01-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-23T05:50:23.140Z" title="更新于 2021-01-23 13:50:23">2021-01-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="一些常用的head标签内部"><a href="#一些常用的head标签内部" class="headerlink" title="一些常用的head标签内部"></a>一些常用的head标签内部</h4><h4 id="meta标签常用"><a href="#meta标签常用" class="headerlink" title=".meta标签常用"></a>.meta标签常用</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这是一段移动端必备的一段代码。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;Description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;HTML是最好的语言&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>长尾关键词， 这是做SEO必需的一段代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;Keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>关键词， 这也是做SEO必需的一段代码， 不过近期百度收录的改动， 渐渐的这段代码已经失去了他原本的意义， 但是也是非常有用的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Meta name&#x3D;&quot;Robots&quot; Content&#x3D;&quot;All|None|Index|Noindex|Follow|Nofollow&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>Robots用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引。Content的参数有all、none、index、noindex、follow、nofollow。默认是all。<br>all：文件将被检索，且页面上的链接可以被查询；<br>none：文件将不被检索，且页面上的链接不可以被查询；(和 “noindex, no follow” 起相同作用)<br>index：文件将被检索；（让robot/spider登录）<br>follow：页面上的链接可以被查询；转自环 球 网校edu24ol.com转自环 球 网校edu24ol.com转自环 球 网校edu24ol.com<br>noindex：文件将不被检索，但页面上的链接可以被查询；(不让robot/spider登录)<br>nofollow：文件将不被检索，页面上的链接可以被查询。(不让robot/spider顺着此页的连接往下探找)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;format-detection&quot; content&#x3D;&quot;telephone&#x3D;no&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>ios版阻止默认数字识别为手机 可将telephone=no，则手机号码不被显示为拨号链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;apple-mobile-web-app-status-bar-style&quot; content&#x3D;&quot;black&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>在web app应用下状态条（屏幕顶部条）的颜色；默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。<br>若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta content&#x3D;&quot;email&#x3D;no&quot; name&#x3D;&quot;format-detection&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>修改默认IOS 把@识别成邮箱。</p>
+<blockquote>
+<p>以上一些就是目前一些常用的Meta 类似一些utf-8 这些编码规范的代码。 在此就不做多说了， 每一个做前端工作的人员，学习的第一步， UTF-8</p>
+</blockquote>
+<hr>
+<h4 id="一些容易忘记的css样式"><a href="#一些容易忘记的css样式" class="headerlink" title="一些容易忘记的css样式"></a>一些容易忘记的css样式</h4><ul>
+<li><p>格式化css默认样式</p>
+<ul>
+<li>腾讯QQ官网 样式初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select&#123;margin:0;padding:0&#125; </span><br><span class="line">      body&#123;font:12px&quot;宋体&quot;,&quot;Arial Narrow&quot;,HELVETICA;background:#fff;-webkit-text-size-adjust:100%;&#125; </span><br><span class="line">      a&#123;color:#2d374b;text-decoration:none&#125; </span><br><span class="line">      a:hover&#123;color:#cd0200;text-decoration:underline&#125; </span><br><span class="line">      em&#123;font-style:normal&#125; </span><br><span class="line">      li&#123;list-style:none&#125; </span><br><span class="line">      img&#123;border:0;vertical-align:middle&#125; </span><br><span class="line">      table&#123;border-collapse:collapse;border-spacing:0&#125; </span><br><span class="line">      p&#123;word-wrap:break-word&#125; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>新浪官网 样式初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div&#123;margin:0;padding:0;border:0;&#125; </span><br><span class="line">body&#123;background:#fff;color:#333;font-size:12px; margin-top:5px;font-family:&quot;SimSun&quot;,&quot;宋体&quot;,&quot;Arial Narrow&quot;;&#125;  </span><br><span class="line">ul,ol&#123;list-style-type:none;&#125; </span><br><span class="line">select,input,img,select&#123;vertical-align:middle;&#125;  </span><br><span class="line">a&#123;text-decoration:none;&#125; </span><br><span class="line">a:link&#123;color:#009;&#125; </span><br><span class="line">a:visited&#123;color:#800080;&#125; </span><br><span class="line">a:hover,a:active,a:focus&#123;color:#c00;text-decoration:underline;&#125; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>淘宝官网 样式初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td &#123; margin:0; padding:0; &#125; </span><br><span class="line">body, button, input, select, textarea &#123; font:12px&#x2F;1.5tahoma, arial, \5b8b\4f53; &#125;</span><br><span class="line">h1, h2, h3, h4, h5, h6&#123; font-size:100%; &#125;</span><br><span class="line">address, cite, dfn, em, var &#123; font-style:normal; &#125;</span><br><span class="line">code, kbd, pre, samp &#123; font-family:couriernew, courier, monospace; &#125;</span><br><span class="line">small&#123; font-size:12px; &#125;</span><br><span class="line">ul, ol &#123; list-style:none; &#125;</span><br><span class="line">a &#123; text-decoration:none; &#125;</span><br><span class="line">a:hover &#123; text-decoration:underline; &#125;</span><br><span class="line">sup &#123; vertical-align:text-top; &#125;</span><br><span class="line">sub&#123; vertical-align:text-bottom; &#125;</span><br><span class="line">legend &#123; color:#000; &#125;</span><br><span class="line">fieldset, img &#123; border:0; &#125;</span><br><span class="line">button, input, select, textarea &#123; font-size:100%; &#125;</span><br><span class="line">table &#123; border-collapse:collapse; border-spacing:0; &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>网易官网 样式初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">html &#123;overflow-y:scroll;&#125;</span><br><span class="line">body &#123;margin:0; padding:29px00; font:12px&quot;\5B8B\4F53&quot;,sans-serif;background:#ffffff;&#125;</span><br><span class="line">div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p&#123;padding:0; margin:0;&#125;</span><br><span class="line">table,td,tr,th&#123;font-size:12px;&#125;</span><br><span class="line">li&#123;list-style-type:none;&#125;</span><br><span class="line">img&#123;vertical-align:top;border:0;&#125;</span><br><span class="line">ol,ul &#123;list-style:none;&#125;</span><br><span class="line">h1,h2,h3,h4,h5,h6&#123;font-size:12px; font-weight:normal;&#125;</span><br><span class="line">address,cite,code,em,th &#123;font-weight:normal; font-style:normal;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>个人建议，集合他们所长， 和你项目的需求来修改自己的初始化代码。毕竟需求不同样式不同</p>
+</blockquote>
+</li>
+<li><p>关于input 去除焦点，边框 outline: none;</p>
+</li>
+<li><p>li标签去除默认样式 list-style-type:none;</p>
+</li>
+<li><p>背景图片固定 background-attachment：fixed （网页滚动时，背景图片相对于浏览器的窗口而言，固定不动）</p>
+</li>
+<li><p>background-attachment: scroll （网页滚动时，背景图片相对于浏览器的窗口而言，一起滚动）</p>
+</li>
+<li><p>text-indent：缩进距离</p>
+</li>
+<li><p>cursor：鼠标形状参数</p>
+<ul>
+<li>style=”cursor:hand” 　　　　　手形</li>
+<li>style=”cursor:crosshair” 　　十字形</li>
+<li>style=”cursor:text” 　　　　　文本形</li>
+<li>style=”cursor:wait” 　　　　　沙漏形</li>
+<li>style=”cursor:move” 　　　　十字箭头形：<ul>
+<li>style=”cursor:help” 　　　　　问号形</li>
+</ul>
+</li>
+<li>style=”cursor:e-resize” 　　　右箭头形</li>
+<li>style=”cursor:n-resize” 　　　上箭头形</li>
+<li>style=”cursor:nw-resize” 　　左上箭头形</li>
+<li>style=”cursor:w-resize” 　　　左箭头形</li>
+<li>style=”cursor:s-resize” 　　　下箭头形</li>
+<li>style=”cursor:se-resize” 　　右下箭头形</li>
+<li>style=”cursor:sw-resize” 　　左下箭头形</li>
+<li>还有一些不是特别常用的句不列举了，</li>
+</ul>
+</li>
+<li><p>letter-spacing 来设置字与字间距_字符间距离，字体间距css样式（汉字用）</p>
+</li>
+<li><p>word-spacing来设置字体间距 ，字体间距css样式（英文用）</p>
+</li>
+<li><p>清除浮动</p>
+<ul>
+<li>在浮动的元素最后添加同级元素这是 clear：both属性</li>
+<li>给父元素这是宽高</li>
+<li>给父元素设置 overflow:hidden</li>
+<li>最常用的三种方法。（记得一定要清除浮动，不然你的页面就会出BUG）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>转载于:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/zzkbwl/p/6816565.html">https://www.cnblogs.com/zzkbwl/p/6816565.html</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CSS/">CSS</a></div><div class="post_share"><div class="social-share" data-image="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgwechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgwechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgalipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgalipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/"><img class="prev-cover" data-lazy-src="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）</div></div></a></div><div class="next-post pull-right"><a href="/2021/01/13/%E7%A7%BB%E5%8A%A8%E7%AB%AFXX%E8%B4%AD%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgvue-logo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">用Vue框架开发移动端XX商城的开发思路</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Waline</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgtotro.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">luckyu</div><div class="author-info__description">啊哈哈</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/"><i class="fab fa-github"></i><span>基于GitHub创建的博客</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yss4598@gmail.com" target="_blank" title="我的Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">没有记录，就没有发生</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84head%E6%A0%87%E7%AD%BE%E5%86%85%E9%83%A8"><span class="toc-number">1.</span> <span class="toc-text">一些常用的head标签内部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#meta%E6%A0%87%E7%AD%BE%E5%B8%B8%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">.meta标签常用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84css%E6%A0%B7%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">一些容易忘记的css样式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/01/21/flex%E4%BD%93%E9%AA%8C/" title="flex布局图文详解"><img data-lazy-src="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="flex布局图文详解"/></a><div class="content"><a class="title" href="/2021/01/21/flex%E4%BD%93%E9%AA%8C/" title="flex布局图文详解">flex布局图文详解</a><time datetime="2021-01-21T03:19:33.000Z" title="发表于 2021-01-21 11:19:33">2021-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" title="响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）"><img data-lazy-src="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）"/></a><div class="content"><a class="title" href="/2021/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" title="响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）">响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）</a><time datetime="2021-01-20T05:04:02.000Z" title="发表于 2021-01-20 13:04:02">2021-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/14/css%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%EF%BC%8C%E4%BD%86%E5%8F%88%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%BB%A3%E7%A0%81/" title="关于css中一些常用，但又容易忘记的代码"><img data-lazy-src="https://img.php.cn/upload/webpage/000/000/006/592551e2eaf5c314.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于css中一些常用，但又容易忘记的代码"/></a><div class="content"><a class="title" href="/2021/01/14/css%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%EF%BC%8C%E4%BD%86%E5%8F%88%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%BB%A3%E7%A0%81/" title="关于css中一些常用，但又容易忘记的代码">关于css中一些常用，但又容易忘记的代码</a><time datetime="2021-01-14T10:24:33.000Z" title="发表于 2021-01-14 18:24:33">2021-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/13/%E7%A7%BB%E5%8A%A8%E7%AB%AFXX%E8%B4%AD%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/" title="用Vue框架开发移动端XX商城的开发思路"><img data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgvue-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用Vue框架开发移动端XX商城的开发思路"/></a><div class="content"><a class="title" href="/2021/01/13/%E7%A7%BB%E5%8A%A8%E7%AB%AFXX%E8%B4%AD%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/" title="用Vue框架开发移动端XX商城的开发思路">用Vue框架开发移动端XX商城的开发思路</a><time datetime="2021-01-13T15:18:34.000Z" title="发表于 2021-01-13 23:18:34">2021-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/01/13/Fetch%20API%20%E6%95%99%E7%A8%8B%20%20/" title="Fetch API 教程"><img data-lazy-src="https://www.wangbase.com/blogimg/asset/202012/bg2020122613.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Fetch API 教程"/></a><div class="content"><a class="title" href="/2021/01/13/Fetch%20API%20%E6%95%99%E7%A8%8B%20%20/" title="Fetch API 教程">Fetch API 教程</a><time datetime="2021-01-13T10:15:56.000Z" title="发表于 2021-01-13 18:15:56">2021-01-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By luckyu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    let initData = {
+      el: '#waline-wrap',
+      serverURL: 'https://comments-api.vercel.app',
+      avatar: 'retro',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: {"name":"_data","version":"1.0.0","dependencies":{"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"}},
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const waline = new Waline(initData)
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2021/01/14/css%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%EF%BC%8C%E4%BD%86%E5%8F%88%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%BB%A3%E7%A0%81/'
+    this.page.identifier = '2021/01/14/css一些常用，但又容易忘记的代码/'
+    this.page.title = '关于css中一些常用，但又容易忘记的代码'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Waline' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,自由,法制" data-fontsize="15px" data-random="true" async="async"></script></div></body></html>
