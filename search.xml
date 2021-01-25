@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>我的博客开通啦</title>
+      <link href="2021/01/25/Blogl%E5%BC%80%E5%A7%8B%E4%BA%86/"/>
+      <url>2021/01/25/Blogl%E5%BC%80%E5%A7%8B%E4%BA%86/</url>
+      
+        <content type="html"><![CDATA[<p>一直在电脑本地用Markdown记笔记的习惯,<br>突然觉得把笔记或是把自己的学习心得（自学前端遇到滴坑真多呀）放到博客中是一个不错的选择。</p><ul><li>一来也可以监督自己，好好消化所学知识。</li><li>二来，要是这些心得能帮到需要的人就更好啦！</li><li>三来，记录一下自己的生活也不错呀~<br>####不定时更新，欢迎扫码加微信交流呀</li></ul><img src= "https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgloading2.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/addwechat.jpg" style="zoom:30%;"/><head>  <script src='//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js'></script></head><body>  <div id="waline"></div>  <script>    new Waline({      el: '#waline',      serverURL: 'https://comments-api.vercel.app',    });  </script></body><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> other </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>flex布局图文详解</title>
       <link href="2021/01/21/flex%E4%BD%93%E9%AA%8C/"/>
       <url>2021/01/21/flex%E4%BD%93%E9%AA%8C/</url>
@@ -230,25 +249,6 @@
             <tag> JS </tag>
             
             <tag> ES6 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>我的博客开通啦</title>
-      <link href="2021/01/02/Blogl%E5%BC%80%E5%A7%8B%E4%BA%86/"/>
-      <url>2021/01/02/Blogl%E5%BC%80%E5%A7%8B%E4%BA%86/</url>
-      
-        <content type="html"><![CDATA[<p><strong>一直在电脑本地用Markdown记笔记,</strong><br><strong>突然觉得把笔记或是把自己的学习心得（自学前端遇到滴坑真多呀）放到博客中是一个不错的选择。</strong><br><strong><em>一来也可以监督自己，好好消化所学知识。</em></strong><br><strong><em>二来，要是这些心得能帮到需要的人就更好啦！</em></strong><br><strong><em>三来，记录一下自己的生活也不错呀~</em></strong><br><strong><em>不定时更新，欢迎扫码加微信交流呀</em></strong></p><img src= "https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImgloading2.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/addwechat.jpg" style="zoom:30%;"/><head>  <script src='//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js'></script></head><body>  <div id="waline"></div>  <script>    new Waline({      el: '#waline',      serverURL: 'https://comments-api.vercel.app',    });  </script></body><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> other </tag>
             
         </tags>
       

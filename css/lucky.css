@@ -1,7 +1,11 @@
 /* 自定义字体 */
 @font-face {
-  font-family: 'STKaiti';
+  /*font-family: 'STKaiti';*/
   /*src: url('https://cdn.jsdelivr.net/gh/lete114/CDN2/zaxiang/sleek.woff2');*/
+}
+/*关于我link的样式*/
+.flink-list-item:hover{
+  background-color: rgba(0,0,0,.2) !important;
 }
 .card-archive-list a:hover{
   background-color: rgb(0, 196, 182) !important;
@@ -23,7 +27,8 @@
 
 /* 页脚透明 */
 #footer {
-  background: url("https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/foot-bg.gif")  !important;
+  /*background: url("https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/foot-bg.gif") */
+  background-color: #f6f6f6!important;
 }
 /*#footer-wrap{*/
 /*  background-color: rgb(0, 196, 182) !important;*/
@@ -75,7 +80,8 @@
     color: #49b1f5 !important;
   }
   #footer {
-    background: url("https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/foot-bg.gif")  !important;
+    /*background: url("https://cdn.jsdelivr.net/gh/luckyu2/imgLibrary/blogImg/foot-bg.gif") */
+    background:#f6f6f6 !important;
   }
 }
 /*右侧名字*/
@@ -95,7 +101,7 @@
 }
 /* 滚动条 */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   height: 10%;
 }
 ::-webkit-scrollbar-thumb{
